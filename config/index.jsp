@@ -14,8 +14,9 @@
 </body>
 </html>
 
-<!--引入JSTL表达式指令-->
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!--引入外部jsp-->
 <%@ include file="../include/left.jsp"%>
+
+
+<!--引入JSTL表达式指令-->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
