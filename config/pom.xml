@@ -1,0 +1,189 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.kaishengit</groupId>
+  <artifactId>movie-manage</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>war</packaging>
+  
+  <!-- 版本信息 -->
+  <properties>
+  	<servlet-version>3.1.0</servlet-version>
+  	<!-- <mysql-version>5.1.38</mysql-version> -->
+  	<oracle-version>10.2.0.4.0</oracle-version>
+	<commons-dbcp2-version>2.2.0</commons-dbcp2-version>
+	<dbutil-version>1.6</dbutil-version>
+	<gson-version>2.8.5</gson-version>
+	<jstl-version>1.2</jstl-version>
+	<codec-version>1.10</codec-version>
+	<lang-version>3.6</lang-version>
+	<fileupload-version>1.3.1</fileupload-version>
+	<jsoup-version>1.10.3</jsoup-version>
+	<log4j-version>1.2.16</log4j-version>
+	<junit-version>4.12</junit-version>
+	<slf4j-version>1.7.21</slf4j-version>
+	<logback-version>1.2.3</logback-version>
+	<ehcache-varsion>2.10.3</ehcache-varsion>
+  </properties>
+  
+  <dependencies>
+  
+  	<!-- 缓存 -->
+	  <dependency>
+	    <groupId>net.sf.ehcache</groupId>
+	    <artifactId>ehcache</artifactId>
+	    <version>${ehcache-varsion}</version>
+	</dependency>
+  
+  
+  <!-- slf4j log4j adapter -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-log4j12</artifactId>
+	    <version>${slf4j-version}</version>
+	</dependency>
+  
+  <!-- slf4j -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-api</artifactId>
+	    <version>${slf4j-version}</version>
+	</dependency>
+
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-classic</artifactId>
+	    <version>${logback-version}</version>
+	</dependency>
+		
+	<dependency>
+	    <groupId>ch.qos.logback</groupId>
+	    <artifactId>logback-core</artifactId>
+	    <version>${logback-version}</version>
+	</dependency>
+  
+  <!-- junit 测试 -->
+  	<dependency>
+		<groupId>junit</groupId>
+		<artifactId>junit</artifactId>
+		<version>${junit-version}</version>
+		<scope>test</scope>
+	</dependency>
+  
+  <!-- fileupload 文件上传 jar包-->
+  <dependency>
+    <groupId>commons-fileupload</groupId>
+    <artifactId>commons-fileupload</artifactId>
+    <version>${fileupload-version}</version>
+  </dependency>
+  
+  <!-- lang3 jar包 -->
+  <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-lang3</artifactId>
+    <version>${lang-version}</version>
+  </dependency>
+  
+  <!-- 加密算法  -->
+  <dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>${codec-version}</version>
+  </dependency>
+  
+  <!-- Gson -->
+  <dependency>
+	  <groupId>com.google.code.gson</groupId>
+	  <artifactId>gson</artifactId>
+	  <version>${gson-version}</version>
+	</dependency>
+ 
+ <!-- jstl 包-->
+	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>jstl</artifactId>
+	    <version>${jstl-version}</version>
+	</dependency>
+	 
+ 
+  <!-- mysql -->
+  <!-- <dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>${mysql-version}</version>
+	</dependency> -->
+	
+	<!-- oracle -->
+	<dependency>
+		<groupId>com.oracle</groupId>
+		<artifactId>ojdbc14</artifactId>
+		<version>${oracle-version}</version>
+	</dependency>
+	
+	<!-- 数据库连接池 -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-dbcp2</artifactId>
+	    <version>${commons-dbcp2-version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.jsoup</groupId>
+		<artifactId>jsoup</artifactId>
+		<version>${jsoup-version}</version>
+	</dependency>
+	
+	<!-- apache commons 数据库连接工具 -->
+	<dependency>
+		<groupId>commons-dbutils</groupId>
+		<artifactId>commons-dbutils</artifactId>
+		<version>${dbutil-version}</version>
+	</dependency>
+  
+  <!-- servlet-api -->
+  	<dependency>
+	    <groupId>javax.servlet</groupId>
+	    <artifactId>javax.servlet-api</artifactId>
+	    <version>${servlet-version}</version>
+	    <scope>provided</scope>
+	</dependency>
+	
+	<!-- log4j -->
+	<dependency>
+	    <groupId>log4j</groupId>
+	    <artifactId>log4j</artifactId>
+	    <version>${log4j-version}</version>
+	</dependency>
+
+  
+  </dependencies>
+  
+  
+   <build>
+    <finalName>movie-manage</finalName>
+    <plugins>
+			<!-- Tomcat插件 -->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+				<configuration>
+					<port>8080</port>
+					<path>/</path>
+					<uriEncoding>UTF-8</uriEncoding>
+				</configuration>
+			</plugin>
+			<!-- 编译插件 -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+		</plugins>
+  </build>
+  
+</project>
