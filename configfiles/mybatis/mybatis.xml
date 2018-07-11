@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 下划线转化 -->
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+
+    <!-- Bean 别名 -->
+    <typeAliases>
+        <typeAlias type="com.kaishengit.entity.Product" alias="product"/>
+        <typeAlias type="com.kaishengit.entity.Movie" alias="Movie"/>
+        <typeAlias type="com.kaishengit.entity.Student" alias="Student"/>
+        <typeAlias type="com.kaishengit.entity.Tag" alias="Tag"/>
+        <typeAlias type="com.kaishengit.entity.School" alias="School"/>
+    </typeAliases>
+
+    <!--环境：开发|测试|线上-->
+    <environments default="dev">
+
+        <environment id="dev">
+            <!-- 事务管理器 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据库连接地址 -->
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql:///dao"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+
+        <environment id="test">
+            <!-- 事务管理器 -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据库连接地址 -->
+            <dataSource type="POOLED">
+                <property name="diver" value="com.mysql.jdbc.Driver"/>
+                <property name="url" value="jdbc:mmysql:///dao"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+
+
+    <!--配置mapper文件的classpath加载路径-->
+    <mappers >
+        <mapper resource="mapper/ProductMappers.xml"/>
+        <mapper resource="mapper/MovieMapper.xml"/>
+        <mapper resource="mapper/StudentMapper.xml"/>
+    </mappers>
+
+    <!--<mappers >
+        <mapper class="com.kaishengit.mapper.ProductMappers"/>
+        <mapper class="com.kaishengit.mapper.MovieMapper"/>
+    </mappers>-->
+    
+</configuration>
