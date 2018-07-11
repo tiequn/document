@@ -62,7 +62,7 @@
         <mapper resource="mapper/StudentMapper.xml"/>
 
         <!-- 自动扫描包内的mapper接口与配置文件 -->
-        <package name="com.kaishengit.mapper"/>
+        <!-- package name="com.kaishengit.mapper"/ -->
     </mappers>
 
 
