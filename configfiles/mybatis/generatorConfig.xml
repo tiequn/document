@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+    <generatorConfiguration>
+
+        <!-- Maven运行命令：mybatis-generator:generate -->
+        <!-- 连接数据库jar报的位置 -->
+        <classPathEntry location="E:\file\jars\jdbc\mysql-connector-java-5.1.40.jar"/>
+
+        <!--
+            id: 自定义
+            targetRuntime: MyBatis3Simple 生成简单的CURD语句
+                           MyBatis3  生成Example的CURD语句
+        -->
+        <context id="MyConfig" targetRuntime="MyBatis3">
+
+            <!-- 去掉自动产生的注释 -->
+            <commentGenerator>
+                <!-- 是否去掉自动产生的注释 true是  否false -->
+                <property name="suppressAllComments" value="true"/>
+                <!-- 是否去掉注释时间  true是  否false -->
+                <property name="suppressData" value="true"/>
+            </commentGenerator>
+
+            <!-- 连接数据库信息 -->
+            <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                            connectionURL="jdbc:mysql:///dao"
+                            userId="root" password="root"/>
+
+
+            <!-- entity -->
+            <javaModelGenerator targetPackage="com.kaishengit.entity" targetProject="src/main/java"/>
+
+            <!-- xml 映射文件 -->
+            <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+            <!-- Mapper接口 -->
+            <javaClientGenerator type="XMLMAPPER"
+                                 targetPackage="com.kaishengit.mapper"
+                                 targetProject="src/main/java"/>
+
+            <table tableName="student" domainObjectName="Student" enableSelectByExample="true"/>
+
+        </context>
+
+    </generatorConfiguration>
