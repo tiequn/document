@@ -21,6 +21,11 @@
         <!-- 自动扫描，将Java类名作为类的别名（首字母小写） -->
         <!--<package name="com.kaishengit.entity"/>-->
     </typeAliases>
+	
+	<!-- 分页 -->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"/>
+    </plugins>
 
 
     <!--环境：开发|测试|线上-->
@@ -63,6 +68,9 @@
 
         <!-- 自动扫描包内的mapper接口与配置文件 -->
         <!-- package name="com.kaishengit.mapper"/ -->
+		
+		<!-- 注解配置 -->
+        <!--<mapper class="com.kaishengit.mapper.MovieMapper"/>-->
     </mappers>
 
 
